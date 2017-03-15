@@ -31,7 +31,7 @@ fatal: no email was given and auto-detection is disabled
 severin@thingie:~/devel/git-profile$ git profile use personal
 Set user to Severin Schols <severin@schols.de>
 
-severin@thingie:~/devel/git-profile$ git commit -m "inital commit"
+severin@thingie:~/devel/git-profile$ git commit -m "initial commit"
 [master (root-commit) d1fdc6a] initial commit
  2 files changed, 37 insertions(+)
  create mode 100644 README.md
