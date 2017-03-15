@@ -7,17 +7,24 @@ import sys
 config = SafeConfigParser()
 config.read(expanduser("~/.gitprofile"))
 
-if len(sys.argv) == 1:
-    print "Missing action."
+def usage():
+    print("usage: git profile <command> <parameters>")
+    print("Available commands:")
+    print("   List available profiles:     list")
+    print("   Set active profile:          use <profilename>")
     sys.exit(1)
 
-action = sys.argv[1]
+if len(sys.argv) == 1:
+    print "error: missing command"
+    usage()
 
-if action == "list":
+cmd = sys.argv[1]
+
+if cmd == "list":
     print "Available profiles:"
     for profile in config.sections():
         print "  %s" % profile
-elif action == "use":
+elif cmd == "use":
     section = sys.argv[2]
 
     if not config.has_section(section):
@@ -27,3 +34,6 @@ elif action == "use":
         subprocess.call(["git", "config", "--local", "user.name", config.get(section, "name")])
         subprocess.call(["git", "config", "--local", "user.email", config.get(section, "email")])
         print "Set user to %s <%s>" % (config.get(section, "name"), config.get(section, "email"))
+else:
+    print("error: unkown command `%s`" % cmd)
+    usage()
