@@ -12,6 +12,25 @@ git config --global user.useConfigOnly true
 git config --global --unset-all user.email
 ```
 
+Individual profiles are configured in ``~/.gitprofile``, like so:
+```
+[<profilename>]
+name = <Your Name>
+email = "<your@email.com>"
+...
+```
+
+e.g.
+```
+[personal]
+name = John Doe
+email = john@doe.net
+
+[work]
+name = John Doe
+email = john.doe@work.com
+```
+
 ## Usage
 ```
 severin@thingie:~/devel/git-profile$ git commit -m "initial commit"
