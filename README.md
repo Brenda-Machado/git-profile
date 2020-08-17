@@ -62,3 +62,4 @@ severin@thingie:~/devel/git-profile$ git commit -m "initial commit"
 * https://github.com/bddenhartog/git-profiles
 * http://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig
 * https://orrsella.com/2013/08/10/git-using-different-user-emails-for-different-repositories/
+* https://maarten.mulders.it/2020/07/multiple-git-identities/ - This is so much more convenient that I'll likely use this mainly from now on
