@@ -62,8 +62,8 @@ git commit -m "initial commit"
 sudo rm /usr/local/bin/git-profile
 ```
 
-## Alternatives
+## Alternatives and Related
 
-- [git-profiles](https://github.com/bddenhartog/git-profiles)
-- [multiple-git-identities](https://maarten.mulders.it/2020/07/multiple-git-identities/) (conditional includes approach)
+- [How to Manage Multiple Git Identities and Commit Signing](https://flori.dev/reads/git-signing-and-multiple-identities/)
+- [Setting Up Multiple GitHub Accounts on One Machine](https://gist.github.com/FelixSiegel/b5b079fb6be319b60f74ec91f2b2153c)
 - [Can I specify multiple users for myself in gitconfig?](http://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig)
