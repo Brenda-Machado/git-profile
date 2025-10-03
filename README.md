@@ -1,27 +1,32 @@
 # git-profile
-Manage multiple identity profiles for git commits.
 
-## Setup
+Manage multiple git identities per repository.
 
-```
+## What it does
+
+Switches between predefined git user profiles on a per-repository basis. Useful when you commit to personal projects, work repositories, and open source under different identities.
+
+## Installation
+
+```bash
 git clone https://github.com/tiefpunkt/git-profile.git
 cd git-profile
 sudo cp git-profile /usr/local/bin/
 sudo chmod +x /usr/local/bin/git-profile
+```
+
+Configure git to require explicit identity:
+
+```bash
 git config --global user.useConfigOnly true
 git config --global --unset-all user.email
 ```
 
-Individual profiles are configured in ``~/.gitprofile``, like so:
-```
-[<profilename>]
-name = <Your Name>
-email = "<your@email.com>"
-...
-```
+## Configuration
 
-e.g.
-```
+Create `~/.gitprofile` with your profiles:
+
+```ini
 [personal]
 name = John Doe
 email = john@doe.net
@@ -32,34 +37,33 @@ email = john.doe@work.com
 ```
 
 ## Usage
-```
-severin@thingie:~/devel/git-profile$ git commit -m "initial commit"
 
-*** Please tell me who you are.
+List available profiles:
 
-Run
-
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
-
-to set your account's default identity.
-Omit --global to set the identity only in this repository.
-
-fatal: no email was given and auto-detection is disabled
-
-severin@thingie:~/devel/git-profile$ git profile use personal
-Set user to Severin Schols <severin@schols.de>
-
-severin@thingie:~/devel/git-profile$ git commit -m "initial commit"
-[master (root-commit) d1fdc6a] initial commit
- 2 files changed, 37 insertions(+)
- create mode 100644 README.md
- create mode 100755 git-profile
+```bash
+git profile list
 ```
 
-## Other projects and approaches
+Set profile for current repository:
 
-* https://github.com/bddenhartog/git-profiles
-* http://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig
-* https://orrsella.com/2013/08/10/git-using-different-user-emails-for-different-repositories/
-* https://maarten.mulders.it/2020/07/multiple-git-identities/ - This is so much more convenient that I'll likely use this mainly from now on
+```bash
+git profile use personal
+```
+
+After setting a profile, commits will use that identity:
+
+```bash
+git commit -m "initial commit"
+```
+
+## Uninstall
+
+```bash
+sudo rm /usr/local/bin/git-profile
+```
+
+## Alternatives
+
+- [git-profiles](https://github.com/bddenhartog/git-profiles)
+- [multiple-git-identities](https://maarten.mulders.it/2020/07/multiple-git-identities/) (conditional includes approach)
+- [Can I specify multiple users for myself in gitconfig?](http://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig)
